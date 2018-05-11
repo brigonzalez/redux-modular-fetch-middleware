@@ -1,7 +1,8 @@
-import Chance from 'chance';
+import Chance from 'chance'; // eslint-disable-line node/no-unpublished-import
 
 import fetchMiddleware from '../src/index';
 
+/* eslint-disable max-nested-callbacks */
 describe('fetch middleware', () => {
     const chance = new Chance();
 
@@ -122,7 +123,7 @@ describe('fetch middleware', () => {
                 });
             });
 
-            test('should not capture errors other than api related', () => {
+            test('should not capture errors other fetch related', () => {
                 const expectedErr = new Error();
 
                 action.fetch.onSuccess.mockImplementationOnce(() => {
@@ -208,3 +209,4 @@ describe('fetch middleware', () => {
         });
     });
 });
+/* eslint-enable */
