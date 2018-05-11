@@ -1,0 +1,46 @@
+{
+  "name": "redux-modular-fetch-middleware",
+  "version": "1.0.0",
+  "description": "A modular redux middleware for using fetch",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint ./src ./tests",
+    "test": "yarn lint && yarn unit",
+    "unit": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brigonzalez/redux-modular-fetch-middleware.git"
+  },
+  "keywords": [
+    "redux",
+    "modular",
+    "fetch",
+    "middleware"
+  ],
+  "author": "Brian Gonzalez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brigonzalez/redux-modular-fetch-middleware/issues"
+  },
+  "homepage": "https://github.com/brigonzalez/redux-modular-fetch-middleware#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-preset-env": "^1.7.0",
+    "chance": "^1.0.16",
+    "eslint": "^4.19.1",
+    "eslint-config-get-off-my-lawn": "^4.0.0",
+    "jest": "^22.4.3"
+  },
+  "jest": {
+    "coverageDirectory": "<rootDir>/.jest-coverage",
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      }
+    }
+  }
+}
