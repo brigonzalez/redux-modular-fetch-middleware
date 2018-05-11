@@ -16,10 +16,16 @@
     "redux",
     "modular",
     "fetch",
-    "middleware"
+    "middleware",
+    "action",
+    "creator",
+    "dispatch"
   ],
-  "author": "Brian Gonzalez",
-  "license": "ISC",
+  "author": {
+    "name":"Brian Gonzalez",
+    "email": "developer.briangonzalez@gmail.com"
+  },
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/brigonzalez/redux-modular-fetch-middleware/issues"
   },
