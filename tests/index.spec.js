@@ -134,43 +134,66 @@ describe('fetch middleware', () => {
             });
 
             describe('fetch call succeeds', () => {
-                test('should fetch headers', async () => {
-                    await callMiddlewareCurry();
-
-                    expect(fetchResponse.headers.get).toHaveBeenCalledTimes(1);
-                    expect(fetchResponse.headers.get).toHaveBeenCalledWith('content-type');
-                });
-
-                describe('onSuccess is a function', () => {
-                    describe('content type is application/json', () => {
-                        beforeEach(() => {
-                            fetchResponse.headers.get.mockReturnValue(`application/json ${chance.word()}`);
-                        });
-                        test('should call success action', async () => {
-                            await callMiddlewareCurry();
-
-                            expect(action.fetch.onSuccess).toHaveBeenCalledTimes(1);
-                            expect(action.fetch.onSuccess).toHaveBeenCalledWith(store.dispatch, store.getState, expectedData);
-                        });
-                    });
-
-                    describe('content type is not application/json', () => {
-                        test('should call success action', async () => {
-                            await callMiddlewareCurry();
-
-                            expect(action.fetch.onSuccess).toHaveBeenCalledTimes(1);
-                            expect(action.fetch.onSuccess).toHaveBeenCalledWith(store.dispatch, store.getState);
-                        });
-                    });
-                });
-
-                describe('onSuccess is not a function', () => {
+                describe('fetch response method is defined', () => {
                     beforeEach(() => {
-                        action.fetch.onSuccess = chance.string();
+                        action.fetch.responseMethod = chance.word();
+                        fetchResponse[action.fetch.responseMethod] = jest.fn().mockResolvedValue(expectedData);
+                        fetchImplementation.mockResolvedValue(fetchResponse);
                     });
 
-                    test('should not call success action', () => {
-                        expect(callMiddlewareCurry()).resolves.not.toThrow();
+                    test('should call response method on response object', async () => {
+                        await callMiddlewareCurry();
+
+                        expect(fetchResponse[action.fetch.responseMethod]).toHaveBeenCalledTimes(1);
+                    });
+                });
+
+                describe('fetch response method is not defined', () => {
+                    test('should fetch headers', async () => {
+                        await callMiddlewareCurry();
+
+                        expect(fetchResponse.headers.get).toHaveBeenCalledTimes(1);
+                        expect(fetchResponse.headers.get).toHaveBeenCalledWith('content-type');
+                    });
+
+                    describe('onSuccess is a function', () => {
+                        describe('content type is application/json', () => {
+                            beforeEach(() => {
+                                fetchResponse.headers.get.mockReturnValue(`application/json ${chance.word()}`);
+                            });
+
+                            test('should call response json', async () => {
+                                await callMiddlewareCurry();
+
+                                expect(fetchResponse.json).toHaveBeenCalledTimes(1);
+                            });
+
+                            test('should call success action', async () => {
+                                await callMiddlewareCurry();
+
+                                expect(action.fetch.onSuccess).toHaveBeenCalledTimes(1);
+                                expect(action.fetch.onSuccess).toHaveBeenCalledWith(store.dispatch, store.getState, expectedData);
+                            });
+                        });
+
+                        describe('content type is not application/json', () => {
+                            test('should call success action', async () => {
+                                await callMiddlewareCurry();
+
+                                expect(action.fetch.onSuccess).toHaveBeenCalledTimes(1);
+                                expect(action.fetch.onSuccess).toHaveBeenCalledWith(store.dispatch, store.getState);
+                            });
+                        });
+                    });
+
+                    describe('onSuccess is not a function', () => {
+                        beforeEach(() => {
+                            action.fetch.onSuccess = chance.string();
+                        });
+
+                        test('should not call success action', () => {
+                            expect(callMiddlewareCurry()).resolves.not.toThrow();
+                        });
                     });
                 });
             });
