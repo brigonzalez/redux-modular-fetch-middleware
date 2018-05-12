@@ -1,4 +1,4 @@
-import Chance from 'chance'; // eslint-disable-line node/no-unpublished-import
+import Chance from 'chance';
 
 import fetchMiddleware from '../src/index';
 
