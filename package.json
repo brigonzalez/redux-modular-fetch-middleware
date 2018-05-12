@@ -4,8 +4,9 @@
   "description": "A modular redux middleware for using fetch",
   "main": "index.js",
   "scripts": {
+    "build": "babel ./src --out-dir ./dist",
     "lint": "eslint ./src ./tests",
-    "test": "yarn lint && yarn unit",
+    "test": "npm run lint && npm run unit",
     "unit": "jest --coverage"
   },
   "repository": {
@@ -22,7 +23,7 @@
     "dispatch"
   ],
   "author": {
-    "name":"Brian Gonzalez",
+    "name": "Brian Gonzalez",
     "email": "developer.briangonzalez@gmail.com"
   },
   "license": "MIT",
@@ -32,6 +33,8 @@
   "homepage": "https://github.com/brigonzalez/redux-modular-fetch-middleware#readme",
   "dependencies": {},
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "chance": "^1.0.16",
     "eslint": "^4.19.1",
