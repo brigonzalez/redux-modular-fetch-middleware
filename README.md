@@ -28,7 +28,7 @@ You can define what the request method, body, and headers look like. In fact, an
 - `options` Fetch options with properties like `method`, `header`, and `body`
 
 If you're retrieving data, you can define what [response method](https://developer.mozilla.org/en-US/docs/Web/API/Body) will be used to retrieve that data.
-- `responseMethod` Response method used to retrieve data. By default `json` will be used as the response method if the header content-type is 'application/json'. **Warning:** If a `responseMethod` is provided and your fetch call returns a response that is not resolvable by the `responseMethod` provided, the Promise will be rejected.
+- `responseMethod` The [response method](https://developer.mozilla.org/en-US/docs/Web/API/Body) used to retrieve data. By default `json` will be used as the response method if the header content-type is 'application/json'. **Warning:** If a `responseMethod` is provided and your fetch call returns a response that is not resolvable by the `responseMethod` provided, the Promise will be rejected.
 
 Being able to call fetch on a dispatch call without being provided hooks whenever that action fails or succeeds isn't very useful. Those options are provided through the properties shown below.
 - `onFailure` The function that will be called if the fetch request fails. Called with `dispatch`, `getState`, and `error`
