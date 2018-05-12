@@ -50,7 +50,8 @@ Being able to call fetch on a dispatch call without being provided hooks wheneve
     - 'text'
 
 **Fetch Implementation**
-The fetch implementation can be defined by passing it in as the parameter when applying redux middleware like so...
+
+The fetch implementation can be defined by passing it in as the parameter when applying the fetch middleware, like so...
 ```javascript
 import crossFetch from 'cross-fetch';
 import fetchMiddleware from 'redux-modular-fetch-middleware';
