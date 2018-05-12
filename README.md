@@ -34,7 +34,7 @@ Being able to call fetch on a dispatch call without being provided hooks wheneve
 - `onFailure` The function that will be called if the fetch request fails. Called with `dispatch`, `getState`, and `error`
 - `onSuccess` The function that will be called if the fetch request succeeds. Called with `dispatch`, `getState`, and `data`
 
-You can even define what fetch implementation you would like the middleware to use when applying the middleware, like so...
+You can even define what fetch implementation you would like the middleware to use when applying the middleware.
 ```javascript
 import crossFetch from 'cross-fetch';
 import fetchMiddleware from 'redux-modular-fetch-middleware';
