@@ -4,7 +4,7 @@
 ---
 
 ### Getting Started
-- Download `redux-modular-fetch-middleware` using `npm` or `yarn`
+- Download `redux-modular-fetch-middleware` using `npm i redux-modular-fetch-middleware` or `yarn add redux-modular-fetch-middleware`
 - Use redux's [`applyMiddleware`](https://redux.js.org/api-reference/applymiddleware) and pass in the default export from `redux-modular-fetch-middleware`, like so...
 ```javascript
 import fetchMiddleware from 'redux-modular-fetch-middleware';
