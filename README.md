@@ -42,10 +42,15 @@ Being able to call fetch on a dispatch call without being provided hooks wheneve
 - `onFailure` The function that will be called if the fetch request fails. Called with `dispatch`, `getState`, and `error`
 - `onSuccess` The function that will be called if the fetch request succeeds. Called with `dispatch`, `getState`, and `data`
 - `options` Fetch options with properties like `method`, `header`, and `body`. By default, `GET` will be used as the request method
-- `responseMethod` Response method used to retrieve data. By default `json` will be used as the response method if the header content-type is 'application/json'. **Warning:** If your fetch call does not return data that is not resolvable by the `responseMethod` provided
+- `responseMethod` The [response method](https://developer.mozilla.org/en-US/docs/Web/API/Body) used to retrieve data. By default `json` will be used as the response method if the header content-type is 'application/json'. **Warning:** If your fetch call does not return data that is not resolvable by the `responseMethod` provided
+    - 'arrayBuffer'
+    - 'blob'
+    - 'formData'
+    - 'json'
+    - 'text'
 
 **Fetch Implementation**
-The fetch implementation can be defined by passing it in as the parameter when applying redux middleware like so..
+The fetch implementation can be defined by passing it in as the parameter when applying redux middleware like so...
 ```javascript
 import crossFetch from 'cross-fetch';
 import fetchMiddleware from 'redux-modular-fetch-middleware';
