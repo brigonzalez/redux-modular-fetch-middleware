@@ -2,9 +2,9 @@
   "name": "redux-modular-fetch-middleware",
   "version": "1.0.1",
   "description": "A modular redux middleware for using fetch",
-  "main": "./dist/index.js",
+  "main": "dist/index.js",
   "files": [
-    "./dist"
+    "dist"
   ],
   "scripts": {
     "build": "rimraf ./dist && babel ./src --out-dir ./dist",
