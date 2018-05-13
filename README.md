@@ -32,8 +32,8 @@ That's it! A `fetch` object with a `url` property is all you need to call fetch 
 
 <br />
 
-You can define what the request `method`, `body`, and `header` look like. In fact, any options that you can define in fetch natively will be passed on just as if you were calling fetch yourself. By default `GET` is used for as the `method`.
-- `options` Fetch options with properties like `method`, `header`, and `body`
+You can define what the request `method`, `body`, and `header` look like. In fact, any options that you can define in fetch natively will be passed on just as if you were calling fetch yourself.
+- `options` Fetch options with properties like `method`, `header`, and `body`. By default, `GET` will be used as the request method
 ```javascript
 const setUserActionCreator = () => ({
     fetch: {
